@@ -2,11 +2,13 @@ import React, { use, useState } from "react";
 import AvailablePlayers from "./AvailablePlayers";
 import SelectedPlayers from "./SelectedPlayers";
 
-const Players = ({ playerPromise }) => {
+const Players = ({ playerPromise, coins, setCoins }) => {
   const players = use(playerPromise);
   //   console.log(players);
 
   const [selectedTab, setSelectedTab] = useState(false);
+
+  const [selectedPlayers, setSelectedPlayers] = useState([]);
 
   return (
     <div className="container mx-auto my-5">
@@ -16,7 +18,7 @@ const Players = ({ playerPromise }) => {
           <h2 className="text-xl md:text-2xl font-bold">Available Players</h2>
         ) : (
           <h2 className="text-xl md:text-2xl font-bold">
-            Selected Players ({`2/${players.length}`})
+            Selected Players ({`${selectedPlayers.length}/${players.length}`})
           </h2>
         )}
 
@@ -31,16 +33,22 @@ const Players = ({ playerPromise }) => {
             onClick={() => setSelectedTab(true)}
             className={`btn btn-outline border-gray-300 md:border-l-0 rounded-lg md:rounded-l-none ${selectedTab && "bg-[#E7FE29]"} w-36 md:w-fit md:text-base text-sm p-5`}
           >
-            Selected (0)
+            Selected ({selectedPlayers.length})
           </button>
         </div>
       </div>
 
       {/* Players will render below  */}
       {!selectedTab ? (
-        <AvailablePlayers players={players} />
+        <AvailablePlayers
+          players={players}
+          coins={coins}
+          setCoins={setCoins}
+          selectedPlayers={selectedPlayers}
+          setSelectedPlayers={setSelectedPlayers}
+        />
       ) : (
-        <SelectedPlayers />
+        <SelectedPlayers selectedPlayers={selectedPlayers} />
       )}
     </div>
   );

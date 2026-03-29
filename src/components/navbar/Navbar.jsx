@@ -2,9 +2,9 @@ import React from "react";
 import coinIcon from "../../assets/DoubleDollar.png";
 import logo from "../../assets/logo.png";
 
-const Navbar = () => {
+const Navbar = ({ coins }) => {
   return (
-    <div className="navbar bg-base-100 py-5 flex items-center justify-between container mx-auto  lg:px-4">
+    <div className="navbar bg-base-100 py-5 flex items-center justify-between container mx-auto px-3  lg:px-4">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -69,8 +69,8 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
-      <button className="font-semibold border border-gray-300 rounded-md text-[#131313] flex items-center justify-center gap-2  w-30 lg:w-35 px-2 py-2">
-        0 Coins
+      <button className="font-semibold border border-gray-300 rounded-md text-[#131313] flex items-center justify-center gap-2 w-45 px-2 py-2">
+        {coins} Coins
         <img src={coinIcon} className="h-5 w-5" alt="Coin Icon" />
       </button>
     </div>

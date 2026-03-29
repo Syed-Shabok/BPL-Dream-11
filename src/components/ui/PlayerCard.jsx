@@ -1,9 +1,14 @@
-import React from "react";
-import { FaUserCircle } from "react-icons/fa";
+import React, { useState } from "react";
 import { HiMiniUser, HiUser } from "react-icons/hi2";
 import { IoFlagSharp } from "react-icons/io5";
 
-const PlayerCard = ({ player }) => {
+const PlayerCard = ({
+  player,
+  coins,
+  setCoins,
+  selectedPlayers,
+  setSelectedPlayers,
+}) => {
   const {
     playerName,
     playerCountry,
@@ -14,6 +19,21 @@ const PlayerCard = ({ player }) => {
     price,
     image,
   } = player;
+
+  const [isSelected, setIsSelected] = useState(false);
+
+  const handleSelectPlayer = () => {
+    const newCoins = coins - price;
+
+    if (newCoins < 0) {
+      alert("Not enough coins!");
+      return;
+    }
+    alert(`${playerName} has been selected.`);
+    setCoins(newCoins);
+    setIsSelected(true);
+    setSelectedPlayers([...selectedPlayers, player]);
+  };
 
   return (
     <div className="border-2  border-gray-200 flex flex-col gap-4 p-5 rounded-xl shadow-sm">
@@ -53,8 +73,16 @@ const PlayerCard = ({ player }) => {
 
       {/* Player Price and Choose Player Button */}
       <div className="flex items-center justify-between">
-        <h4 className="font-semibold md:text-lg">Price: ${price}</h4>
-        <button className="btn btn-outline">Choose Player</button>
+        <h4 className="font-semibold md:text-lg">
+          Price: ${price.toLocaleString()}
+        </h4>
+        <button
+          onClick={handleSelectPlayer}
+          className="btn btn-outline"
+          disabled={isSelected}
+        >
+          {!isSelected ? "Choose Player" : "Selected"}
+        </button>
       </div>
     </div>
   );

@@ -7,7 +7,7 @@
     "rating": 95,
     "battingStyle": "Right-hand bat",
     "bowlingStyle": "Right-arm medium",
-    "price": 1500000,
+    "price": 1500,
     "image": "https://i.ibb.co/8gZM8m5g/virat-kohli.jpg"
   },
   {
@@ -18,7 +18,7 @@
     "rating": 93,
     "battingStyle": "Left-hand bat",
     "bowlingStyle": "Left-arm orthodox",
-    "price": 1080000,
+    "price": 1080,
     "image": "https://i.ibb.co/4Rq63nPL/mp-shakib.jpg"
   },
   {
@@ -29,7 +29,7 @@
     "rating": 92,
     "battingStyle": "Right-hand bat",
     "bowlingStyle": "Right-arm offbreak",
-    "price": 1000000,
+    "price": 1000,
     "image": "https://i.ibb.co/hRyQn33p/babr-azm.jpg"
   },
   {
@@ -40,10 +40,9 @@
     "rating": 90,
     "battingStyle": "Left-hand bat",
     "bowlingStyle": "Right-arm fast-medium",
-    "price": 1150000,
+    "price": 1150,
     "image": "https://i.ibb.co/ch1PJ7FB/ben-stokes.jpg"
   },
-
   {
     "playerId": 4,
     "playerName": "Kane Williamson",
@@ -52,7 +51,7 @@
     "rating": 91,
     "battingStyle": "Right-hand bat",
     "bowlingStyle": "Right-arm offbreak",
-    "price": 1050000,
+    "price": 1050,
     "image": "https://i.ibb.co/ccx7363Q/kane-williamson.jpg"
   },
   {
@@ -63,7 +62,7 @@
     "rating": 89,
     "battingStyle": "Left-hand bat",
     "bowlingStyle": "Left-arm fast",
-    "price": 1000000,
+    "price": 1000,
     "image": "https://i.ibb.co/Z6nPmP8p/Mitchell-Starc.jpg"
   }
 ]

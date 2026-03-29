@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 import "./App.css";
 import Navbar from "./components/navbar/Navbar";
 import Players from "./components/players/Players";
@@ -11,10 +11,26 @@ const fetchPlayers = async () => {
 
 function App() {
   const playerPromise = fetchPlayers();
+  const [coins, setCoins] = useState(3000);
+
+  // const manageCoins = (playerPrice, isBuying) => {
+  //   let newCoins = 0;
+  //   if (isBuying) {
+  //     newCoins = coins - playerPrice;
+  //   } else {
+  //     newCoins = coins + playerPrice;
+  //   }
+
+  //   if (newCoins < 0) {
+  //     alert("Not enough coins!");
+  //     return;
+  //   }
+  //   setCoins(newCoins);
+  // };
 
   return (
     <>
-      <Navbar />
+      <Navbar coins={coins} />
       <Suspense
         fallback={
           <div className="w-full flex justify-center min-h-[50vh]">
@@ -22,7 +38,11 @@ function App() {
           </div>
         }
       >
-        <Players playerPromise={playerPromise} />
+        <Players
+          playerPromise={playerPromise}
+          coins={coins}
+          setCoins={setCoins}
+        />
       </Suspense>
     </>
   );
